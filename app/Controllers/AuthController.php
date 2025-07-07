@@ -53,9 +53,16 @@ class AuthController extends BaseController
             return redirect()->back();
         }
     }
+    $diskonModel = new DiskonModel();
+    $today = date('Y-m-d');
+    $diskon = $diskonModel->where('tanggal', $today)->first();
+    if ($diskon) {
+        session()->set('diskon', $diskon['nominal']);
+    }
 
     return view('v_login');
 }
+    
 
     public function logout()
     {

@@ -224,5 +224,11 @@
 
         </ul>
     </nav><!-- End Icons Navigation -->
+    <?php if (session()->has('diskon')) : ?>
+    <div class="alert alert-success text-center">
+        Diskon Hari Ini: Rp <?= number_format(session('diskon'), 0, ',', '.') ?>
+    </div>
+<?php endif; ?>
+
 
 </header><!-- End Header -->
